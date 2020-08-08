@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinHelloWorld.Views.PracticePage"
+             xmlns:vm="clr-namespace:XamarinHelloWorld.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:PracticeViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Margin="20,35,20,25" Orientation="Vertical">
+            <Label Text="Welcome to Xamarin.Forms!" TextColor="Blue" FontAttributes="Italic" FontSize="22" TextDecorations="Underline"  HorizontalOptions="Center" />
+
+            <Label Text="Start" HorizontalOptions="Start" BackgroundColor="Gray" />
+            <Label Text="Center" HorizontalOptions="Center" BackgroundColor="MintCream" />
+            <Label Text="End" HorizontalOptions="End" BackgroundColor="BlanchedAlmond" />
+            <Label Text="Fill" HorizontalOptions="Fill" BackgroundColor="Gray" />
+            <Label Text="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Green" />
+            <Label Text="StartAndExpand" VerticalOptions="StartAndExpand" BackgroundColor="Gray" />
+            <Label Text="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Gray" />
+            <Label Text="EndAndExpand" VerticalOptions="EndAndExpand" BackgroundColor="Gray" />
+            <Button Text="Click me" Clicked="OnButtonClicked" CornerRadius="15" x:Name="button1"/>
+            <Button Text="Click Jim!" Clicked="OnButtonClicked" CornerRadius="15" x:Name="buttonJim"/>
+            
+            <Entry Text="{Binding Claude.firstName}" Focused="Entry_Change" x:Name="entry1"/>
+            <Entry Text="{Binding Claude.lastName}" Focused="Entry_Change" x:Name="entry2"/>
+            
+            <Label Text="Changing, hopefully" BackgroundColor="AntiqueWhite" HorizontalOptions="StartAndExpand" x:Name="dilt" />
+            <Entry Placeholder="Enter text" TextChanged="OnEntryTextChanged" Completed="OnEntryCompleted" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

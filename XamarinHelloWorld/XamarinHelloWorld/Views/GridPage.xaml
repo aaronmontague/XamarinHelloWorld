@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinHelloWorld.Views.GridPage"
+             xmlns:vm="clr-namespace:XamarinHelloWorld.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:GridViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Margin="20,35,20,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*" />
+                    <ColumnDefinition Width="0.5*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Label Text="Column 0, Row 0" />
+                <Label Grid.Column="1"
+           Text="Column 1, Row 0" />
+                <Label Grid.Row="1"
+           Text="Column 0, Row 1" />
+                <Label Grid.Column="1"
+           Grid.Row="1"
+           Text="Column 1, Row 1" />
+            </Grid>
+            <Grid Margin="20,35,20,20" Padding="5" BackgroundColor="Aqua" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="0.5*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <Label Grid.ColumnSpan="2"
+           Text="This text uses the ColumnSpan property to span both columns." />
+            <Label Grid.Row="1"
+           Grid.RowSpan="2"
+           Text="This text uses the RowSpan property to span two rows." />
+        </Grid>
+            
+            <!-- This grid is to test layouts for visible borders -->
+            <Grid VerticalOptions="FillAndExpand"
+      HorizontalOptions="FillAndExpand"
+      RowSpacing="0"
+      ColumnSpacing="0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="1"/>
+                </Grid.RowDefinitions>
+
+                <BoxView BackgroundColor="Black"
+           HeightRequest="1"
+           HorizontalOptions="FillAndExpand"
+           Grid.Row="0"/>
+
+                <Grid VerticalOptions="Start"
+        ColumnSpacing="0"
+        Grid.Row="1">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Button Text="Button 1"/>
+
+                    <BoxView BackgroundColor="Black"
+             WidthRequest="1"
+             VerticalOptions="FillAndExpand"
+             Grid.Column="1"/>
+
+                    <Button Text="Button 1"
+            Grid.Column="2"/>
+                </Grid>
+
+                <BoxView BackgroundColor="Black"
+           HeightRequest="1"
+           HorizontalOptions="FillAndExpand"
+           Grid.Row="2"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinHelloWorld.Views.DatabasePage"
+             xmlns:vm="clr-namespace:XamarinHelloWorld.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:DatabaseViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Margin="20,35,20,20">
+            <Entry x:Name="nameEntry"
+               Placeholder="Enter name" />
+            <Entry x:Name="ageEntry"
+               Placeholder="Enter age" />
+            <Entry x:Name="drinkEntry"
+               Placeholder="Booze?" />
+            <Label x:Name="idLabel" IsVisible="false"/>
+            <Button Text="Add to Database"
+                Clicked="OnButtonClicked"
+                    x:Name="buttonAddToDatabase"/>
+            <Button Text="Edit Entry"
+                Clicked="OnEditButtonClicked"
+                    x:Name="buttonEditEntry"
+                    IsVisible="false"/>
+            <ListView x:Name="listView" ItemTapped="HandleItemTapped">
+                <ListView.Header>
+                    <Grid>
+                        <Label Text="Name" FontSize="16" />
+                        <Label Text="Age" Grid.Column="1" FontSize="16" />
+                        <Label Text="Drink of Choice" Grid.Column="2" HorizontalTextAlignment="End" FontSize="16" />
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!--<TextCell Text="{Binding Name}" Detail="{Binding Age}"  />-->
+                        <ViewCell>
+                            <Grid>
+                                <Label Text="{Binding Name}" />
+                                <Label Text="{Binding Age}" Grid.Column="1"/>
+                                <Label Text="{Binding DrinkOfChoice}" Grid.Column="2" HorizontalTextAlignment="End"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
