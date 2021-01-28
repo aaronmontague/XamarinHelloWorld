@@ -40,7 +40,7 @@
                Grid.Column="1"
                Text="{Binding Title}" />
             <Label Grid.Row="3"
-               Text="Temperature:" />
+               Text="Temperature (F):" />
             <Label Grid.Row="3"
                Grid.Column="1"
                Text="{Binding Main.Temperature}" />
